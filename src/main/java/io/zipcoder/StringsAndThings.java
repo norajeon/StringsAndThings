@@ -1,6 +1,11 @@
 package io.zipcoder;
 
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.sql.SQLOutput;
+import java.util.Arrays;
+
 /**
  * @author tariq
  */
@@ -15,7 +20,16 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+
+        String[] words = input.split(" ");
+        int count = 0;
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].endsWith("y") || words[i].endsWith("z")) {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     /**
@@ -28,7 +42,13 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+
+    // if (remove.equals(base)) {
+        String newString = base.replaceAll(remove,"");
+        return newString;
+    //}
+
+
     }
 
     /**
@@ -40,7 +60,26 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        // int isNum = 0;
+        String[] contains = input.split("is", -5);
+        int num1 = contains.length-1;
+        // for (int i = 0; i < input.length(); i++) {
+           // if (input.matches("is")) {
+           //     isNum++;
+           // }
+       // }
+        //int notNum = 0;
+        String[] notContains = input.split("not", -5);
+        int num2 = notContains.length-1;
+         //   for (int j = 0; j < input.length(); j++) {
+           //     if (input.matches("not")) {
+                   // notNum++;
+             //   }
+
+          //  }
+
+
+        return num1 == num2;
     }
 
     /**
@@ -51,7 +90,9 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        boolean happyString = input.contains("gg");
+
+        return happyString;
     }
 
 
@@ -63,6 +104,28 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        char[] trips = input.toCharArray();
+        int h = 0;
+        for (int k = 0; k < trips.length - 2 ; k++) {
+            if (trips[k] == trips[k+1] && trips[k] == trips[k+2] && trips[k+1] == trips[k+2]){
+                h++;
+            }
+
+           /** for (int m = 1; m < trips.length; m++) {
+                for (int n = 2; n < trips.length; n++) {
+            if (trips[k] == trips[m] && trips[k] == trips[n] && trips[n] == trips[m]) {
+
+
+                h++;
+
+            }
+            }
+
+           }
+
+            */
+        }
+
+        return h;
     }
 }
